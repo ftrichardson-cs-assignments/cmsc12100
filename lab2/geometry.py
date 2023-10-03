@@ -2,9 +2,32 @@
 
 import math
 
-# Your distance function goes here 
+def distance(point1, point2):
+    '''
+    Computes the distance between two points
 
-# Your perimeter function goes here 
+    Inputs:
+        point1: (int, int)
+        point2: (int, int)
+    
+    Returns: distance
+    '''
+    (x, y) = point1
+    (i, j) = point2
+    return math.sqrt((x - i)**2 + (y - j)**2)
+
+def perimeter(point1, point2, point3):
+    '''
+    Computes the perimeter of a triangle given its edges
+
+    Inputs:
+        point1: (int, int)
+        point2: (int, int)
+        point3: (int, int)
+    
+    Returns: perimeter
+    '''
+    return distance(point1, point2) + distance(point1, point3) + distance(point2, point3)
 
 def go():
     '''
@@ -16,13 +39,12 @@ def go():
     After that is done, verify that the triangle with vertices at 
     (0, 0), (0, 1), (1, 0) has a perimeter 2 + math.sqrt(2)
     '''
-
-    # replace the pass with code that calls your functions
-    # and prints the results
-    pass
+    print("Points: (0, 1) and (1, 0)\n")
+    print("Distance: {}\n".format(distance((0, 1), (1, 0))))
+    print("Points: (0, 0), (0, 1), and (1, 0)\n")
+    print("Perimeter: {}\n".format(perimeter((0, 0), (0, 1), (1, 0))))
 
 if __name__ == "__main__":
     go()
-    
-                
+       
 

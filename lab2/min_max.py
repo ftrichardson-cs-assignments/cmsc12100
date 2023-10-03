@@ -15,7 +15,6 @@ def compute_frequencies(lst):
     Returns: list where the ith element is the number of times
      i occurs in lst.
     """
-
     # allocate space to hold the lst
     frequencies = [0] * (max(lst) + 1)
 
@@ -36,7 +35,6 @@ def find_most_frequent_values(lst):
 
     Returns: list of the int(s) that occur most frequently.
     """
-
     # Determine how frequenctly most frequent value(s) occurs.
     frequencies = compute_frequencies(lst)
     max_freq = max(frequencies)
@@ -46,4 +44,28 @@ def find_most_frequent_values(lst):
     for i, freq in enumerate(frequencies):
         if freq == max_freq:
             rv.append(i)
+    return rv
+
+def find_least_frequent_values(lst):
+    """
+    Find the value or values (in the case of ties) that occur least
+    frequently in the list.
+
+    Inputs:
+      lst: list of integers between 0 and some upper bound M
+        (inclusive), where M is expected to be relative small
+        (say, less than 1000).
+
+    Returns: list of the int(s) that occur most frequently.
+    """
+    frequencies = compute_frequencies(lst)
+    frequencies = [val for val in frequencies if val != 0]
+    min_freq = min(frequencies)
+
+    rv = []
+
+    for i, freq in enumerate(frequencies):
+        if freq == min_freq:
+            rv.append(i)
+
     return rv
